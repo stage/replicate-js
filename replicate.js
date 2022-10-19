@@ -82,7 +82,7 @@ export class ReplicateModel {
             predictionStatus = checkResponse.status;
             await sleep(this.replicate.pollingInterval);
             // TODO: only yield if there is a new prediction
-            yield checkResponse.output;
+            yield checkResponse;
         } while (["starting", "processing"].includes(predictionStatus));
     }
     async predict(input = "") {
